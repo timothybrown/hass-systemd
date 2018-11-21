@@ -8,7 +8,6 @@ hass-systemd v0.1.2 by Timothy Brown 2018.11.18
 """
 import logging
 from datetime import timedelta, datetime
-from systemd import daemon
 import os
 from homeassistant.helpers.event import (
     async_track_time_interval, async_call_later)
@@ -54,6 +53,9 @@ async def async_setup(hass, config):
         else:
             async_call_later(hass, 1, check_status)
 
+    # Import the required library.
+    from systemd import daemon
+
     # Watchdog Setup:
     # Get the watchdog timeout from the WATCHDOG_USEC enviroment variable.
     watchdog_usec = int(os.getenv('WATCHDOG_USEC', default='0'))
@@ -88,6 +90,7 @@ async def async_setup(hass, config):
 
 # Helper function to update the systemd status entry.
 def _notify_status(state):
+    from systemd import daemon
     # Dictionary to decode our state into a friendly string.
     status_message = {CoreState.not_running: 'stopped',
                         CoreState.running: 'running',

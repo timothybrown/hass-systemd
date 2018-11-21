@@ -15,10 +15,10 @@ Please change any paths as needed for your particular setup.
 - Download the plugin files:
   - `git clone https://github.com/timothybrown/hass-systemd.git`
 - Create the custom components directory, if needed:
-  - `sudo -u hass mkdir -p /srv/hass/custom_components`
+  - `sudo -u hass mkdir -p /srv/hass/config/custom_components`
 - Copy the systemd component into the correct location:
   - `sudo chown hass:hass hass-systemd/systemd.py`
-  - `sudo -u hass cp hass-systemd/systemd.py /srv/hass/custom_components/`
+  - `sudo -u hass cp hass-systemd/systemd.py /srv/hass/config/custom_components/`
 - Edit your HA configuration to enable our new component:
   - `sudo -u hass nano /srv/hass/config/configuration.yaml`
   - Add the following line somewhere in the file:

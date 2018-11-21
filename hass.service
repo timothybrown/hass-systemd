@@ -10,7 +10,7 @@ Before=
 # Units which are started more than Burst times within an IntervalSec time
 # interval are not permitted to start any more.
 StartLimitBurst=5
-StartLimitIntervalSec=30
+StartLimitIntervalSec=60
 # Uncomment the directive below to have systemd reboot the system if HA fails
 # more than Burst times within the IntervalSec time limit.
 #StartLimitAction=reboot
@@ -23,13 +23,13 @@ User=hass
 # The path to the HA executable. Change this for your configuration.
 ExecStart=/srv/hass/bin/hass -c "/srv/hass/config"
 # Sets the watchdog timeout to 30 seconds.
-WatchdogSec=30s
+WatchdogSec=60s
 # Sets the service to restart on non-zero exit codes, crashes and watchdog timeouts.
 Restart=on-failure
 # Tells systemd to wait 5 seconds before restarting the service.
 RestartSec=5
 # Sets a startup and shutdown timeout of 3 minutes.
-TimeoutSec=3m
+TimeoutSec=5m
 
 [Install]
 WantedBy=multi-user.target
