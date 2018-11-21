@@ -4,7 +4,7 @@ Allows Home Assistant to run as a systemd notify daemon, with watchdog support.
 For more information, please refer to the documentation at
 http://github.com/timothybrown/hass-systemd
 
-hass-systemd v0.1.4 by Timothy Brown 2018.11.18
+hass-systemd v0.1.2 by Timothy Brown 2018.11.18
 """
 import logging
 from datetime import timedelta, datetime
