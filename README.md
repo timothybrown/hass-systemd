@@ -94,6 +94,6 @@ Please report any issues here on GitHub. Enjoy!
   - Now reports the main PID to systemd.
   - Added comments and cleaned up the code.
 - 0.2.0 (2019.04.26)
-  * Converted to a HA integration.
-  * Added manifest file.
-  * Moved Function 'notify_status' inside 'async_setup'.
+  - Converted to a HA integration.
+  - Added manifest file.
+  - Moved Function 'notify_status' inside 'async_setup'.
