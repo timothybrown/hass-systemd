@@ -1,35 +1,23 @@
 [Unit]
 Description=Home Assistant
-
-# Startup Ordering
 After=network-online.target
 Wants=network-online.target
 Before=
 
-# Configure unit start rate limiting.
-# Units which are started more than Burst times within an IntervalSec time
-# interval are not permitted to start any more.
-StartLimitBurst=5
-StartLimitIntervalSec=60
-# Uncomment the directive below to have systemd reboot the system if HA fails
-# more than Burst times within the IntervalSec time limit.
-#StartLimitAction=reboot
-
 [Service]
-# Tell systemd that we're running as a notify service.
 Type=notify
-# The user HA is to run under. Change this for your configuration.
-User=hass
-# The path to the HA executable. Change this for your configuration.
-ExecStart=/srv/hass/bin/hass -c "/srv/hass/config"
-# Sets the watchdog timeout to 30 seconds.
-WatchdogSec=60s
-# Sets the service to restart on non-zero exit codes, crashes and watchdog timeouts.
+# User HA is to run under.   *** Change this for your configuration. ***
+User=homeassistant
+# Path to the HA executable. *** Change this for your configuration. ***
+ExecStart=/path/to/hass/bin/hass -c "/path/to/hass/config"
+# This service has a start, stop and watchdog timeout of 5 minutes. The service will automatically
+# restart 15 seconds after a timeout or crash.
+TimeoutStartSec=5m
+TimeoutStopSec=5m
+WatchdogSec=5m
 Restart=on-failure
-# Tells systemd to wait 5 seconds before restarting the service.
-RestartSec=5
-# Sets a startup and shutdown timeout of 3 minutes.
-TimeoutSec=5m
+RestartSec=15s
+
 
 [Install]
 WantedBy=multi-user.target
