@@ -4,5 +4,6 @@
     "documentation": "https://www.github.com/timothybrown/hass-systemd",
     "dependencies": [],
     "codeowners": ["@timothybrown"],
-    "requirements": ["systemd-python>=234"]
+    "requirements": ["systemd-python>=234"],
+    "version": "0.2.1"
 }
